@@ -32,4 +32,28 @@ int main() {
     std::cout << "4.Delete Item.\n";
     std::cout << "Enter your choice: ";
 
+    std::cin>> choice
+
+    while (choice <1 || choice > 4 || std::cin.fail()) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '.\n');
+        std::cout << "Invalid input, choose a number between 1 and 4: ";
+        std::cin >> choice;
+    }
+
+    switch(choice) {
+        case 1:
+        //functions to create item
+        case 2:
+        // function to view item
+        case 3:
+        // function to update item
+        case 4:
+        // function to delete item
+        default:
+        std::cout << "An error occrred  .\n";
+        break
+    }
+
+    return 0;
 }
