@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+#include <limits>
 
 void createItem() {
     std::cout << "You selected add Item.\n";
@@ -32,11 +33,11 @@ int main() {
     std::cout << "4.Delete Item.\n";
     std::cout << "Enter your choice: ";
 
-    std::cin>> choice
+    std::cin>> choice;
 
     while (choice <1 || choice > 4 || std::cin.fail()) {
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '.\n');
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << "Invalid input, choose a number between 1 and 4: ";
         std::cin >> choice;
     }
@@ -44,15 +45,23 @@ int main() {
     switch(choice) {
         case 1:
         //functions to create item
+        //addItem();
+        break;
         case 2:
         // function to view item
+        //viewItem();
+        break;
         case 3:
         // function to update item
+        //updateItem();
+        break;
         case 4:
         // function to delete item
+        //deleteItem();
+        break;
         default:
         std::cout << "An error occrred  .\n";
-        break
+        break;
     }
 
     return 0;
