@@ -1,33 +1,27 @@
-#ifndef INVENTORY_H
-#define INVENTORY_H
-
-#include <string>
-#include <map>
+#include "Inventory.h"
 #include <iostream>
-#include "WarehouseItem.h" //include Warehouse item
-#include "inventory.h"
+#include <algorithm>
+#include <vector>
 
-std::map<std::string, WarehouseItem> inventory;
+std::map<std::string, Item*> inventory;
 
+void addItem(const std::string &name, double price, int quantity, const std:: string &description) {
+    Item* item = new WarehouseItem(name, price, quantity, description);
+    inventory[name] = item;
+    std::cout << "Item added successfully. \n";
+}
 
-//function to add item to map
-void addItem(const std::string &name, double price, int quantity, std::string &description);
-//under construction
+void displayItems() {
+    for (const auto &pair : inventory) {
+        pair.second->display();
+        std::cout<< "\n-----------------------------\n";
+    }
+}
 
-//function to display the items
-void displayItems();
-//under construction
+bool compareByName(Item* a, Item* b) {
+    return a->getName() < b->getName();
+}
 
-//function to update items
-bool updateITem(const std::string &name, double price, int quantity, std::string &description);
-//under construction
-
-// function to delete item
-bool deleteItem(const std:: string &name);
-
-//under construction
-
-
-#endif
-
-
+bool compareByPrice(Item* a, Item* b) {
+    return a->getPrice() < b->getPrice();
+}

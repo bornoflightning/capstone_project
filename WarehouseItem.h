@@ -1,4 +1,9 @@
 
+#ifndef WAREHOUSEITEM_H
+#define WAREHOUSEITEM_H
+
+#include "Item.h"
+
 #include <string>
 #include <iostream>
 #include <iomanip>
@@ -15,25 +20,33 @@ private:
 
 public:
 //constructor
+    WarehouseItem()= default;
 //the constructor requires for user to provide the name, price quantity etc.
     WarehouseItem(const std::string& name, double price, int quantity, const std::string& description)
         : name(name), price(price), quantity(quantity), description(description) {}
 
 //functions and getters the return the information stored in this object
-    std::string getName() const {
+    std::string getName() const override{
         return name;
     }
 //gets price from item
-    double getPrice() const {
+    double getPrice() const override{
         return price;
     }
 
-    int getQuantity() const {
+    int getQuantity() const override{
         return quantity;
     }
 //retrieves a short description of item
-    std::string getDescription() const {
+    std::string getDescription() const override{
         return description;
+    }
+
+    void display() const override {
+        std::cout <<"Name: " << name
+                    <<", Price: " <<std::fixed << std::setprecision(2) << price
+                    <<", Quantity: " <<quantity
+                    <<", Description: " <<description;
     }
 
     friend std::ostream& operator<<(std::ostream& os, const WarehouseItem& item) {
