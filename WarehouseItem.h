@@ -1,4 +1,5 @@
 
+//WarehouseItem.h
 #ifndef WAREHOUSEITEM_H
 #define WAREHOUSEITEM_H
 
@@ -9,7 +10,7 @@
 #include <iomanip>
 
 //create class and variables inside of class 
-class WarehouseItem {
+class WarehouseItem : public Item {
     //declare variables
 private:
 // attributes that provide a description of the item created
@@ -26,23 +27,36 @@ public:
         : name(name), price(price), quantity(quantity), description(description) {}
 
 //functions and getters the return the information stored in this object
-    std::string getName() const override{
+    std::string getName() const {
         return name;
     }
 //gets price from item
-    double getPrice() const override{
+    double getPrice() const {
         return price;
     }
 
-    int getQuantity() const override{
+    int getQuantity() const {
         return quantity;
     }
+
 //retrieves a short description of item
-    std::string getDescription() const override{
+    std::string getDescription() const {
         return description;
     }
 
-    void display() const override {
+    void setPrice(double price) override {
+        this->price = price;
+    }
+
+    void setQuantity(int quantity) override {
+        this->quantity = quantity;
+    }
+
+    void setDescription(const std::string &description) override {
+        this->description = description;
+    }
+
+    void display() const  {
         std::cout <<"Name: " << name
                     <<", Price: " <<std::fixed << std::setprecision(2) << price
                     <<", Quantity: " <<quantity
@@ -57,3 +71,5 @@ public:
         return os;
     }
 };
+
+#endif // WAREHOUSEITEM_H
