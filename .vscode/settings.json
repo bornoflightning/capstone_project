@@ -50,6 +50,10 @@
         "xutility": "cpp",
         "map": "cpp",
         "algorithm": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "set": "cpp",
+        "chrono": "cpp",
+        "ratio": "cpp",
+        "thread": "cpp"
     }
 }

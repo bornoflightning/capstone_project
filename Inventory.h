@@ -30,6 +30,8 @@ void cleanupInventory();
 
 void createItem();
 
+void waitForNextInput();
+
 
 #endif // INVENTORY_H
 
